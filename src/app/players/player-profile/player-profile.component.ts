@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Player } from '../../shared/players/player';
+import { BasketballPlayer } from '../../shared/players/basketball-player';
 
 @Component({
   selector: 'app-player-profile',
@@ -9,5 +9,36 @@ import { Player } from '../../shared/players/player';
 })
 export class PlayerProfileComponent {
   @Input()
-  selectedPlayer: Player
+  selectedPlayer: BasketballPlayer;
+  editPosition = false;
+  editHeight = false;
+  editWeight = false;
+
+  getDisplayFlag(displayFlag: boolean): string {
+    return displayFlag ? 'inline': 'none';
+  }
+
+  showEditPosition() {
+    this.editPosition = true;
+  }
+
+  savePosition() {
+    this.editPosition = false;
+  }
+
+  showEditHeight() {
+    this.editHeight = true;
+  }
+
+  saveHeight() {
+    this.editHeight = false;
+  }
+
+  showEditWeight() {
+    this.editWeight = true;
+  }
+
+  saveWeight() {
+    this.editWeight = false;
+  }
 }
